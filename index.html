@@ -8,20 +8,24 @@
 </head>
 <body>
    <center>
-    <h1>Calling Seva</h1>
+    <!-- <h1>Calling Seva</h1> -->
     <br>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Call</th>
-                </tr>
-            </thead>
-            <tbody id="userdata">
-    
-            </tbody>
-        </table>
+       <div class="main_table">
+        <h1> Calling Seva</h1>
+        </div>
+            <table>
+                <thead>
+                    <tr>
+                        <!-- <th></th> -->
+                        <!-- <th>Email</th>
+                        <th>Call</th> -->
+                    </tr>
+                </thead>
+                <tbody id="userdata">
+        
+                </tbody>
+            </table>
+       
         
    </center>
    <script>
@@ -31,19 +35,25 @@
          console.warn(result)
          document.getElementById('userdata').innerHTML=result.map((user) =>
          `<tr>
-             <td>${user.name}</td>
-             <td>${user.email}</td>
-             <td><a href="tel:${user.phone}"> <button onclick="change()" type="button"> <img src="call.png" id="Image" class="image"></img></button> </a></td>   
+            <td>${user.name}</td>
+            <td>
+                <a href="tel:${user.phone}"> <button onclick="change()" type="button"> <img src="call.png" id="Image" ></img></button></a>
+                <a href="${user.email}">
+                    <button  type="button"><img src="message.png"    
+                </a>
+
+
+            </td>          
          </tr>`
          ).join("")
      }
      API();
      function change(){
-        var img=document.getElementById('Image');
+        var img=document.getElementsById("Image");
         img.src="call2.png";
 
      }
  </script>
- <button type="button"></button>
+ 
 </body>
 </html>
