@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API_CALL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <center>
+    <h1>Calling Seva</h1>
+    <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Call</th>
+                </tr>
+            </thead>
+            <tbody id="userdata">
+    
+            </tbody>
+        </table>
+        
+   </center>
+   <script>
+    async function API(){
+         let result = await fetch('https://jsonplaceholder.typicode.com/users');
+         result = await result.json();
+         console.warn(result)
+         document.getElementById('userdata').innerHTML=result.map((user) =>
+         `<tr>
+             <td>${user.name}</td>
+             <td>${user.email}</td>
+             <td><a href="tel:${user.phone}"> <button onclick="change()" type="button"> <img src="call.png" id="Image" class="image"></img></button> </a></td>   
+         </tr>`
+         ).join("")
+     }
+     API();
+     function change(){
+        var img=document.getElementById('Image');
+        img.src="call2.png";
+
+     }
+ </script>
+ <button type="button"></button>
+</body>
+</html>
