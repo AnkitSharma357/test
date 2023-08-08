@@ -17,9 +17,8 @@
         <tbody id="Name"></tbody>
     </table>
   </center>
-  <!-- <img src="call.png" id="image">
-  <button type="button" onclick="change()"> change</button> -->
    <script>
+   
     async function API(){
          let result = await fetch('https://jsonplaceholder.typicode.com/users');
          result = await result.json();
@@ -36,8 +35,8 @@
 
                     <div class="phone">
                         <a href="tel:${user.phone}"> 
-                            <button type="button" onclick="change()"> 
-                                <img src="call.png" id="image">
+                            <button type="button" onclick="change('call2.png','${user.username}')"> 
+                                <img src="call.png" id="${user.username}">
                             </button>
                         </a>
                     </div>
@@ -55,9 +54,9 @@
          ).join("")
      }
      API();
-     function change(){
-        let img = document.getElementById('image');
-        img.src= 'call2.png';
+     function change(filename,x){
+        let img = document.getElementById(x);
+        img.setAttribute("src",filename);
      }
  </script>
 </body>
