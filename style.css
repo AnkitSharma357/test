@@ -7,10 +7,11 @@ img{
     height: 1.5rem;
     width: 1.5rem;
 }
-img:hover{
+img{
     cursor: pointer;
 }
 button{
+    background-color: red;
     border: none;
     border-radius: 1rem;
     background-color: white;
@@ -20,21 +21,21 @@ td{
     border: 2px solid grey;
     border-radius: 1rem;
 }
-div.container{
+.container{
     display: flex;
     height: auto;
     width: fit-content;
 }
-div.name{
+.name{
     padding: 0.4rem 0.4rem 0.4rem 0.4rem;
     width: 15rem;
     font-size: 1.2rem;
 }
-div.phone{
+.phone{
     margin: 0.3rem 0.3rem 0.3rem 0.3rem;
     padding: 0.3rem 0.3rem 0.3rem 0.3rem;
 }
-div.email{
+.email{
     margin: 0.3rem 0.3rem 0.3rem 0.3rem;
     padding: 0.3rem 0.3rem 0.3rem 0.3rem;
 }
@@ -50,16 +51,115 @@ th{
 tr{
     margin-bottom: 2rem;
 }
-div.name1{
+.name1{
     padding: 0.2rem 0.2rem 0.2rem 0.2rem;
 }
-div.shortname{
+.shortname{
     margin-left: 0.2rem;
     padding: 0.2rem 0.2rem 0.2rem 0.2rem;
     font-size: 0.7rem;
 }
-div.popup{
+.popup{
     height: 10rem;
     width: 10rem;
     background-color: yellowgreen;
+}
+.overlap{
+    transition: 1s;
+    width: 100%;
+    position: fixed;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    z-index: -1;
+    opacity: 0;
+}
+.showoverlap{
+    z-index: 1;
+    opacity: 1;
+}
+.resigter{
+    transition: 2s;
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 2px solid black;
+    border-radius: 2rem;
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    transform: translate(-50%,-50%);
+    padding: 2rem 2rem;
+    background-color:white;
+    width: 15rem;
+    height: auto;
+    text-align: center;
+}
+.showresigter{
+    top: 50%;
+}
+.u1{
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+    width: 11rem;
+    height: auto;
+}
+.n{
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: consolas;
+    text-align: center;
+    right: 50%;
+    left: 50%;
+    width: 10rem;
+    height: 1rem;
+}
+.resigter span{
+    padding: 0.2rem 0.2rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    right: 6%;
+    top: 4%;
+}
+.resigter span:hover{ /* for close symbol*/
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}
+.call:hover{
+    cursor: pointer;
+
+}
+.resigter button{
+    background-color: black;
+    width: 10px;
+    height: 10px;
+}
+.short_n{
+    z-index: -1;
+    top: 10%;
+    text-align: center;
+    width: 10rem;
+    height: 1rem;
+    margin-bottom: 0.5rem;
+}
+.submit_button{
+    background-color: rgb(8, 32, 55);
+    border-radius: 0.5rem;
+    width: 5rem;
+    height: 1.5rem;
+    color: white;
+}
+.u1 textarea{
+    width: 10rem;
+    height: 5rem;
+    padding: 0.5rem 0.5rem;
+}
+.u1 textarea:hover{
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+}
+.username_mail{
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
 }

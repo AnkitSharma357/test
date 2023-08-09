@@ -17,8 +17,40 @@
         <tbody id="Name"></tbody>
     </table>
   </center>
+  <div class="overlap">
+    <div class="resigter">
+        <span onclick="closeregister()">&times;</span>
+        <form action="">
+            <div class="username_mail">
+                <div class="n" id="class_username">
+                    Ankit
+                </div>
+                <div class="short_n" id="electronic_mail">
+                    hari boll
+                </div>
+            </div>
+
+            <div class="u1">
+                <label for=""><b>interested ?</b></label>&nbsp;
+                <input type="radio">Yes &nbsp; 
+                <input type="radio">No
+            </div>
+
+            <div class="u1">
+                <label for=""><b>commnet(if any)</b></label>
+                <br>
+                <br>
+                <textarea cols="30" rows="10">write your feedback</textarea>
+            </div>
+            <input type="submit" class="submit_button">
+        </form>
+    </div>
+  </div>
+
+
+
+
    <script>
-   
     async function API(){
          let result = await fetch('https://jsonplaceholder.typicode.com/users');
          result = await result.json();
@@ -35,15 +67,15 @@
 
                     <div class="phone">
                         <a href="tel:${user.phone}"> 
-                            <button type="button" onclick="change('call2.png','${user.username}')"> 
+                            <button  type="button" onclick="change('call2.png','${user.username}')"> 
                                 <img src="call.png" id="${user.username}">
                             </button>
                         </a>
                     </div>
 
                     <div class="email">
-                        <button  type="button" onclick="popup()">
-                            <img src="message.png">
+                        <button type="button" onclick="popup('${user.name}','${user.email}')">
+                            <img src="message.png" id="${user.username}">
                         </button>
                     </div>
 
@@ -58,6 +90,20 @@
         let img = document.getElementById(x);
         img.setAttribute("src",filename);
      }
+     function popup(username,id){
+        document.querySelector('.overlap').classList.add('showoverlap');
+        document.querySelector('.resigter').classList.add('showresigter');
+        let x = document.getElementById('class_username');
+        x.innerText=username;
+        let y = document.getElementById('electronic_mail');
+        y.innerText=id;
+        
+     }
+     function closeregister(){
+        document.querySelector('.overlap').classList.remove('showoverlap');
+        document.querySelector('.resigter').classList.remove('showresigter');
+     }
+
  </script>
 </body>
 </html>
