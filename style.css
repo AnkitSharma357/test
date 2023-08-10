@@ -143,11 +143,18 @@ tr{
     margin-bottom: 0.5rem;
 }
 .submit_button{
+    padding: 0.1rem;
+    margin-left: 3rem;
+    font-family: consolas;
+    text-align: center;
     background-color: rgb(8, 32, 55);
     border-radius: 0.5rem;
     width: 5rem;
     height: 1.5rem;
     color: white;
+}
+.submit_button:hover{
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.20); 
 }
 .u1 textarea{
     width: 10rem;
@@ -162,4 +169,72 @@ tr{
     padding: 0.5rem 0.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+}
+.conform{
+    transition: 3s;
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    border: 2px solid black;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    transform: translate(-50%,-50%);
+    width: 10rem;
+    min-height: 10rem;
+    opacity: 0;
+    z-index: -1;
+}
+.showconform{
+    top: 50%;
+    opacity: 1;
+    z-index: 1;
+}
+div.tick{
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    border-radius: 10rem;
+    background-color: white;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%,-50%);
+    width: 5rem;
+    height: 5rem;
+    margin-left: 5rem;
+}
+.tick img{
+    /* background-color: blue; */
+    border-radius: 10rem;
+    width: 5rem;
+    height: 5rem;
+}
+.thankyou{
+    border-radius: 1rem;
+    position: absolute;
+    background-color: white;
+    color: black;
+    font-family: consolas;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 8rem;
+    height: auto;
+}
+.ok{
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    border-radius: 1rem;
+    padding: 0.5rem 0.5rem;
+    text-align: center;
+    width: 7rem;
+    height: 2rem;
+    background-color: green;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,130%);
+    font-family: consolas;
+    font-weight: bold;
+    /* opacity: 0; */
 }
