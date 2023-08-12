@@ -328,6 +328,8 @@ div.tick{
 }
 .welcomeMessage{
     margin-top: 2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     top: 20%;
     font-family: consolas;
     font-weight: bold;
@@ -336,6 +338,7 @@ div.tick{
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.9), 0 6px 9px 0 rgba(0, 0, 0, 0.19);
 }
 .login_button_welcome{
+    margin-bottom: 1rem;
     text-align: center;
     padding: 0.5rem 0.5rem;
     position: absolute;
@@ -362,7 +365,7 @@ div.tick{
     background-color: white;
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 1rem;
-    width: 15rem;
+    width: auto;
     height: 10rem;
     padding: 0.5rem 0.5rem;
     /* background-color: blue; */
