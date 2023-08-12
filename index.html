@@ -8,39 +8,82 @@
 </head>
 <body>
   <center>
-    <table>
-        <thead>
-            <tr>
-                <th>Calling Seva</th>
-            </tr>
-        </thead>
-        <tbody id="Name"></tbody>
-    </table>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Calling Seva</th>
+                </tr>
+            </thead>
+            <tbody id="Name"></tbody>
+        </table>
+    </div>
   </center>
+  <!-- // creating logging from// -->
+  <div class="welcome">
+        <center>
+            <div class="welcomeMessage">
+                Click On the login button to start your Calling Seva....
+            </div>
+        </center>
+
+        <div class="prabhupadImage">
+            <img  class="welcomeImage" src="parbhu01.png">
+        </div>
+
+        <center>
+            <div class="login_button_welcome" onclick="showloginform()">
+                Login...
+            </div>
+        </center>
+  </div>
+
+  <!-- loginform div start -->
+  <div class="loging_form_overlap">
+    <div class="loginform">
+        <center><div class="hedinglgin">Login....</div></center>
+        <div class="form">
+            <form>
+                <label class="login_label">User name</label><br>
+                <input  class="input_tag" type="text"><br>
+                <label class="login_label">Password</label><br>
+                <input class="input_tag" type="text">
+                <br>
+            </form>
+        </div>
+        <div class="login_button" onclick="showCallingdata()">
+            Login
+        </div>
+    </div>
+  </div>
+
+
+
+
+
   <div class="overlap">
     <div class="resigter">
         <span onclick="closeregister()">&times;</span>
         <form action="">
             <div class="username_mail">
                 <div class="n" id="class_username">
-                    Ankit
                 </div>
                 <div class="short_n" id="electronic_mail">
-                    hari boll
                 </div>
+                <div class="userid" id="mail"></div>
             </div>
 
             <div class="u1">
                 <label for=""><b>interested ?</b></label>&nbsp;
-                <input type="radio">Yes &nbsp; 
-                <input type="radio">No
+                <input type="radio" id="yes" value="yes" name="choise_button">Yes</input> &nbsp; 
+                <input type="radio"  id="no" value="no" name="choise_button">No</input>
             </div>
 
             <div class="u1">
                 <label for=""><b>commnet(if any)</b></label>
                 <br>
                 <br>
-                <textarea cols="30" rows="10">write your feedback</textarea>
+                <textarea cols="30" rows="10"  id="placeholder" placeholder="write some comments"></textarea>
             </div>
         </form>
         <div class="submit_button" onclick="conformation()"> Submit</div>
@@ -62,31 +105,40 @@
 
 
    <script>
+
     async function API(){
-         let result = await fetch('https://jsonplaceholder.typicode.com/users');
+        let domain = 'https://mighty-spoons-tap.loca.lt'
+        let path = '/calling-data/1';
+        let domain1 = 'http://localhost';
+        let url = domain1+path;
+
+        let url3 ='https://jsonplaceholder.typicode.com/users';
+        let url1='https://loose-singers-fetch.loca.lt/calling-data/1';
+
+         let result = await fetch(url);
          result = await result.json();
-         console.warn(result)
+         console.warn(result);
          document.getElementById('Name').innerHTML=result.map((user) =>
          `<tr>
             <td>
                 <div class="container">
 
                     <div class="name1">
-                        <div class="name">${user.name}</div>
-                        <div class="shortname">${user.email}</div>
+                        <div class="name">${user.calleeName}</div>
+                        <div class="shortname">${user.programAttending}</div>
                     </div>
 
                     <div class="phone">
-                        <a href="tel:${user.phone}"> 
-                            <button  type="button" onclick="change('call2.png','${user.username}')"> 
-                                <img src="call.png" id="${user.username}">
+                        <a href="tel:${user.mobile}"> 
+                            <button  type="button" onclick="change('call2.png','${user.calleeName}')"> 
+                                <img src="call.png" id="${user.calleeName}">
                             </button>
                         </a>
                     </div>
 
                     <div class="email">
-                        <button type="button" onclick="popup('${user.name}','${user.email}')">
-                            <img src="message.png" id="${user.username}">
+                        <button type="button" onclick="popup('${user.calleeName}','${user.programAttending}','${user.id}')">
+                            <img src="message.png" >
                         </button>
                     </div>
 
@@ -96,33 +148,126 @@
          `
          ).join("")
      }
-     API();
+     
+     // fnction too change the call image into gray 
      function change(filename,x){
         let img = document.getElementById(x);
         img.setAttribute("src",filename);
      }
-     function popup(username,id){
+     // function ends
+
+     // function to change create the poopup menu 
+     function popup(calleeName,programAttending,id){
+        console.log("i am in popuup windoow",id);
         document.querySelector('.overlap').classList.add('showoverlap');
         document.querySelector('.resigter').classList.add('showresigter');
         let x = document.getElementById('class_username');
-        x.innerText=username;
+        x.innerText=calleeName;
         let y = document.getElementById('electronic_mail');
-        y.innerText=id;
+        y.innerText=programAttending;
+        let z = document.getElementById('mail');
+        z.innerText = id;
         
      }
+     // funtion popup ends
+
+     //function to close the popup menu
      function closeregister(){
+
         document.querySelector('.overlap').classList.remove('showoverlap');
         document.querySelector('.resigter').classList.remove('showresigter');
      }
+     // fuunction ends
+
+     //function to submit the commnets and ooptions
      function conformation(){
+        console.log("I am in conformation");
+
         document.querySelector('.resigter').classList.remove('showresigter');
         document.querySelector('.conform').classList.add('showconform');
+        
+       
      }
+     //function ends
+
+     // function to remove the tick dialog box//
      function removeconform(){
+
         document.querySelector('.overlap').classList.remove('showoverlap');
         document.querySelector('.conform').classList.remove('showconform');
-     }
 
+        update_API();
+     }
+     //function ends
+
+     //function to add the data in the data base
+      function fetch_id(){
+         console.log("I am in fetch_id function and id is: ");
+         let y = document.getElementById('mail');
+         let fetch_id = y.innerText;
+        let option = {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+            body:JSON.stringify({
+                id: fetch_id,
+                intrested: taking_radio_button_input(),
+                comments:taking_data_from_element(),
+
+            })
+        }
+        return(option); 
+     }
+     //fnction ends
+      async function update_API(){
+        let option = fetch_id();
+        let url1='http://localhost/calling-data/save';
+        let url = 'https://jsonplaceholder.typicode.com/users';
+        
+        let data =await fetch(url1,option);
+        data = await data.json();
+        console.warn(data);
+
+        console.log("HK!");
+     }
+     // fuunction to take the commnets inpuut
+     function taking_data_from_element(){
+        let txt = document.getElementById('placeholder');
+        let txtvalue = txt.value;
+        return txtvalue;
+     }
+     //function to taking the input from radio button
+    function taking_radio_button_input(){
+        let Intrested;
+        if(document.getElementById('yes').checked){
+            Intrested = true;
+        }
+
+        else if(document.getElementById('no').checked){
+            Intrested = false;
+        }
+        console.log("radio: ",Intrested);
+        return(Intrested);
+
+    }
+
+    function showloginform(){
+        document.querySelector('.loging_form_overlap').classList.add('showloginoverlap');
+        document.querySelector('.loginform').classList.add('shwologinform');
+    }
+
+    function showCallingdata(){
+        document.querySelector('.welcome').classList.add('remove_welcome_page');
+        document.querySelector('.prabhupadImage').classList.add('remove_parbhupad_Image');
+        document.querySelector('.table').classList.add('show_table');
+        document.querySelector('.loging_form_overlap').classList.remove('showloginoverlap');
+        document.querySelector('.loginform').classList.remove('shwologinform');
+        API();
+    }
+
+
+    
  </script>
 </body>
 </html>
