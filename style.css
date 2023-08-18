@@ -65,7 +65,7 @@ tr{
     background-color: yellowgreen;
 }
 .overlap{
-    transition: 1s;
+    /* transition: 1s; */
     width: 100%;
     position: fixed;
     top: 0%;
@@ -79,7 +79,7 @@ tr{
     opacity: 1;
 }
 .resigter{
-    transition: 1s;
+    /* transition: 1s; */
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border: 2px solid black;
     border-radius: 2rem;
@@ -171,7 +171,7 @@ tr{
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
 }
 .conform{
-    transition: 1s;
+    /* transition: 1s; */
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
     border: 2px solid black;
     border-radius: 1rem;
@@ -291,7 +291,7 @@ div.tick{
 
 
 .loginform{
-    transition: 1s;
+    /* transition: 1s; */
     border-radius: 2rem;
     box-shadow: 0 3rem 4rem 0 rgba(0, 0, 0, 0.9), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
     width: 20rem;
@@ -299,14 +299,14 @@ div.tick{
     background-color: white;
     position: absolute;
     left: 50%;
-    top: -50%;
+    top: 60%;
     transform: translate(-50%,-50%);
     /* z-index: 1; */
 }
 .shwologinform{
-    top: 50%;
+    top: -60%;
 }
-.loging_form_overlap{
+/* .loging_form_overlap{
     transition: 1s;
     width: 100%;
     position: fixed;
@@ -315,11 +315,11 @@ div.tick{
     height: 100vh;
     z-index: -1;
     opacity: 0;
-}
-.showloginoverlap{
+} */
+/* .showloginoverlap{
     z-index: 1;
     opacity: 1;
-}
+} */ 
 
 .welcomeImage{
     width: 100%;
@@ -327,9 +327,10 @@ div.tick{
     object-fit: fill;
 }
 .welcomeMessage{
+    padding: 1rem 1rem;
+    width: fit-content;
+    height: auto;
     margin-top: 2rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
     top: 20%;
     font-family: consolas;
     font-weight: bold;

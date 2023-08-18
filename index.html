@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API_CALL</title>
+    <title>ISKCON_CALLING_SEVA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,11 +23,11 @@
   <div class="welcome">
         <center>
             <div class="welcomeMessage">
-                Click On the login button to start your Calling Seva....
+                Jai Srila Parbhupad.....
             </div>
         </center>
 
-        <div class="prabhupadImage">
+        <!-- <div class="prabhupadImage">
             <img  class="welcomeImage" src="parbhu01.png">
         </div>
 
@@ -35,19 +35,19 @@
             <div class="login_button_welcome" onclick="showloginform()">
                 Login...
             </div>
-        </center>
+        </center> -->
   </div>
 
   <!-- loginform div start -->
-  <div class="loging_form_overlap">
+  <!-- <div class="loging_form_overlap"> -->
     <div class="loginform">
         <center><div class="hedinglgin">Login....</div></center>
         <div class="form">
             <form>
                 <label class="login_label">User name</label><br>
-                <input  class="input_tag" type="text"><br>
+                <input  class="input_tag" type="text" id="user_name"><br>
                 <label class="login_label">Password</label><br>
-                <input class="input_tag" type="password">
+                <input class="input_tag" type="password" id="password">
                 <br>
             </form>
         </div>
@@ -55,11 +55,7 @@
             Login
         </div>
     </div>
-  </div>
-
-
-
-
+  <!-- </div> -->
 
   <div class="overlap">
     <div class="resigter">
@@ -105,7 +101,23 @@
 
 
    <script>
+    //function to fetch the data from a file 
+    
 
+    function fetch_file_data(){
+        fetch("./text.txt")
+        .then(Response => Response.text())
+        .then(data => showconsole(data));
+    }
+
+    function showconsole(data){
+        console.log(data);
+    }
+
+
+    //end of the fetch file from data
+
+    //function to fetch API data
     async function API(){
         let domain = 'https://mighty-spoons-tap.loca.lt'
         let path = '/calling-data/1';
@@ -117,7 +129,6 @@
 
          let result = await fetch(url);
          result = await result.json();
-         console.warn(result);
          document.getElementById('Name').innerHTML=result.map((user) =>
          `<tr>
             <td>
@@ -148,6 +159,7 @@
          `
          ).join("")
      }
+     // end of the function to fetch data
      
      // fnction too change the call image into gray 
      function change(filename,x){
@@ -158,7 +170,7 @@
 
      // function to change create the poopup menu 
      function popup(calleeName,programAttending,id){
-        console.log("i am in popuup windoow",id);
+
         document.querySelector('.overlap').classList.add('showoverlap');
         document.querySelector('.resigter').classList.add('showresigter');
         let x = document.getElementById('class_username');
@@ -171,6 +183,7 @@
      }
      // funtion popup ends
 
+
      //function to close the popup menu
      function closeregister(){
 
@@ -179,16 +192,15 @@
      }
      // fuunction ends
 
+
      //function to submit the commnets and ooptions
      function conformation(){
-        console.log("I am in conformation");
 
         document.querySelector('.resigter').classList.remove('showresigter');
-        document.querySelector('.conform').classList.add('showconform');
-        
-       
+        document.querySelector('.conform').classList.add('showconform'); 
      }
      //function ends
+
 
      // function to remove the tick dialog box//
      function removeconform(){
@@ -202,7 +214,6 @@
 
      //function to add the data in the data base
       function fetch_id(){
-         console.log("I am in fetch_id function and id is: ");
          let y = document.getElementById('mail');
          let fetch_id = y.innerText;
         let option = {
@@ -227,16 +238,18 @@
         
         let data =await fetch(url1,option);
         data = await data.json();
-        console.warn(data);
-
-        console.log("HK!");
      }
+
+
      // fuunction to take the commnets inpuut
      function taking_data_from_element(){
         let txt = document.getElementById('placeholder');
         let txtvalue = txt.value;
         return txtvalue;
      }
+
+
+
      //function to taking the input from radio button
     function taking_radio_button_input(){
         let Intrested;
@@ -252,19 +265,34 @@
 
     }
 
-    function showloginform(){
-        document.querySelector('.loging_form_overlap').classList.add('showloginoverlap');
-        document.querySelector('.loginform').classList.add('shwologinform');
-    }
+    // function showloginform(){
+    //     document.querySelector('.loging_form_overlap').classList.add('showloginoverlap');
+    //     document.querySelector('.loginform').classList.add('shwologinform');
+    // }
 
     function showCallingdata(){
         document.querySelector('.welcome').classList.add('remove_welcome_page');
-        document.querySelector('.prabhupadImage').classList.add('remove_parbhupad_Image');
+        // document.querySelector('.prabhupadImage').classList.add('remove_parbhupad_Image');
         document.querySelector('.table').classList.add('show_table');
-        document.querySelector('.loging_form_overlap').classList.remove('showloginoverlap');
-        document.querySelector('.loginform').classList.remove('shwologinform');
+        // document.querySelector('.loging_form_overlap').classList.remove('showloginoverlap');
+        document.querySelector('.loginform').classList.add('shwologinform');
         API();
+        fetch_username_and_password();
+        fetch_file_data();
+
     }
+
+    function fetch_username_and_password(){
+        let username = document.querySelector('#user_name').value;
+        let password = document.querySelector('#password').value;
+
+        let fetch_username = username;
+        let fetch_password = password;
+
+        console.log("user_name",fetch_username);
+        console.log("password",fetch_password);
+    }
+    
 
 
     
