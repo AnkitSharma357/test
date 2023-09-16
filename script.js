@@ -113,7 +113,7 @@ async function API(){
     let option = {
         method: 'PUT',
         headers: {
-            'Authorization':text ,
+            'Authorization':'Basic fetch_file_data()',
             'Content-type': 'application/json; charset=UTF-8',
         },
         body:JSON.stringify({
@@ -169,7 +169,7 @@ function taking_radio_button_input(){
 // }
 
 function showCallingdata(){
-    document.querySelector('.welcome').classList.add('remove_welcome_page');
+    // document.querySelector('.welcome').classList.add('remove_welcome_page');
     // document.querySelector('.prabhupadImage').classList.add('remove_parbhupad_Image');
     document.querySelector('.table').classList.add('show_table');
     // document.querySelector('.loging_form_overlap').classList.remove('showloginoverlap');
@@ -195,41 +195,5 @@ function fetch_username_and_password(){
 }
 
 // https://dummyjson.com/posts link for post API
-
-
-async function callAPi(){
-    let option={
-        method:'GET',
-        headers:{
-            'Authorization':'8889e93e6bee14060981c590d19478ad',
-            'Content-type': 'application/json; charset=UTF-8',
-            // 'appid':'8889e93e6bee14060981c590d19478ad'
-        }
-    }
-    let url = 'https://api.openweathermap.org/data/2.5/weather';
-    let Herder = 'q=delhi&appid=8889e93e6bee14060981c590d19478ad';
-    let final_url = url+Herder;
-    let key = await fetch(url,{
-        headers:{
-            q:'delhi',
-            appid:'8889e93e6bee14060981c590d19478ad'
-        }
-    });
-    key = await key.json();
-    console.warn(key);
-    console.log(key);
-}
-
-callAPi();
-
-// appid=8889e93e6bee14060981c590d19478ad
-// q=delhi&appid=8889e93e6bee14060981c590d19478ad
-
-// {
-//     headers:{
-//         q:'delhi',
-//         appid:'8889e93e6bee14060981c590d19478ad'
-//     }
-// }
 
 
