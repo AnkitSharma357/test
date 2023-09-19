@@ -245,9 +245,13 @@ div.tick{
     height: 2rem;
     top: -50%;
     z-index: -1;
-    opacity: 1;
+    opacity: 0;
 }
 .table{
+    /* transform: translate(-50%,-50%); */
+    position: absolute;
+    left: 35%;
+    top: -50%;
     z-index: -1;
     opacity: 0;
     width: fit-content;
@@ -255,6 +259,7 @@ div.tick{
     /* background-color: red; */
 }
 .show_table{
+    top: 15%;
     z-index: 1;
     opacity: 1;
 }
@@ -298,7 +303,7 @@ div.tick{
     background-color: white;
     position: absolute;
     left: 50%;
-    top: 60%;
+    top: 50%;
     transform: translate(-50%,-50%);
     /* z-index: 1; */
 }
@@ -379,10 +384,10 @@ div.tick{
     background-color: white;
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 1rem;
-    width: 15rem;
+    width: 20rem;
     height: auto;
     /* background-color: green; */
-    padding: 0.5rem 0.5rem;
+    padding: 0.3rem 0.3rem;
     border-radius: 1rem ;
     font-size: 2rem;
     font-weight: bold;
@@ -418,4 +423,34 @@ div.tick{
 .login_button:hover{
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight: bold;
+}
+.logout_btton{
+    background-color: white;
+    color: black;
+    width: 20rem;
+    height: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    font-family: consolas;
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    left: 52.5%;
+    top: -50%;
+    margin-bottom: 1rem;
+    transform: translate(-50%,-50%);
+    opacity: 1;
+    z-index: -1;
+    border: 2px solid gray;
+}
+.show_log_out_buttn{
+    top: 9%;
+    opacity: 1;
+    z-index: 1;
+}
+.logout_btton:hover{
+    cursor: pointer;
+    /* font-weight: normal; */
+    background-color: rgba(226, 221, 221, 0.942);
 }

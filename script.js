@@ -3,7 +3,6 @@
 async function fetch_file_data(){
     let data = await fetch("./text.txt");
     let result = await data.text();
-    console.log(result);
     return (result);
 }
 
@@ -100,7 +99,6 @@ async function API(){
 
     document.querySelector('.overlap').classList.remove('showoverlap');
     document.querySelector('.conform').classList.remove('showconform');
-    alert("your response submitted successfully");
     update_API();
  }
  //function ends
@@ -123,7 +121,6 @@ async function API(){
 
         })
     }
-    console.log("from fetch id function: ",text);
     return(option); 
  }
  //fnction ends
@@ -158,22 +155,15 @@ function taking_radio_button_input(){
     else if(document.getElementById('no').checked){
         Intrested = false;
     }
-    console.log("radio: ",Intrested);
     return(Intrested);
 
 }
 
-// function showloginform(){
-//     document.querySelector('.loging_form_overlap').classList.add('showloginoverlap');
-//     document.querySelector('.loginform').classList.add('shwologinform');
-// }
 
 function showCallingdata(){
-    // document.querySelector('.welcome').classList.add('remove_welcome_page');
-    // document.querySelector('.prabhupadImage').classList.add('remove_parbhupad_Image');
     document.querySelector('.table').classList.add('show_table');
-    // document.querySelector('.loging_form_overlap').classList.remove('showloginoverlap');
     document.querySelector('.loginform').classList.add('shwologinform');
+    document.querySelector('.logout_btton').classList.add('show_log_out_buttn');
     API();
     fetch_file_data();
 
@@ -194,6 +184,12 @@ function fetch_username_and_password(){
     }
 }
 
-// https://dummyjson.com/posts link for post API
+function logout_from_calling_seva(){
+    document.querySelector('.table').classList.remove('show_table');
+    document.querySelector('.loginform').classList.remove('shwologinform');
+    document.querySelector('.logout_btton').classList.remove('show_log_out_buttn');
+    alert("You are log out successfully");
+}
+
 
 
