@@ -249,9 +249,9 @@ div.tick{
 }
 .table{
     /* transform: translate(-50%,-50%); */
-    position: absolute;
+    /* position: absolute;
     left: 35%;
-    top: -50%;
+    top: -50%; */
     z-index: -1;
     opacity: 0;
     width: fit-content;
@@ -259,7 +259,7 @@ div.tick{
     /* background-color: red; */
 }
 .show_table{
-    top: 15%;
+    /* top: 15%; */
     z-index: 1;
     opacity: 1;
 }
@@ -310,20 +310,6 @@ div.tick{
 .shwologinform{
     top: -60%;
 }
-/* .loging_form_overlap{
-    transition: 1s;
-    width: 100%;
-    position: fixed;
-    top: 0%;
-    background-color: rgba(0, 0, 0, 0.4);
-    height: 100vh;
-    z-index: -1;
-    opacity: 0;
-} */
-/* .showloginoverlap{
-    z-index: 1;
-    opacity: 1;
-} */ 
 
 .welcomeImage{
     width: 100%;
@@ -424,33 +410,38 @@ div.tick{
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight: bold;
 }
-.logout_btton{
-    background-color: white;
-    color: black;
-    width: 20rem;
-    height: 3rem;
-    border-radius: 2rem;
-    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
-    font-family: consolas;
-    font-size: 2rem;
-    font-weight: bold;
-    position: absolute;
-    left: 52.5%;
-    top: -50%;
-    margin-bottom: 1rem;
-    transform: translate(-50%,-50%);
-    opacity: 1;
-    z-index: -1;
-    border: 2px solid gray;
+.logout_image{
+    background-image: url('logout.svg'); 
+    background-size: contain; 
+    width: 1rem;
+    height: 1rem;
+    margin-left:90% ;
 }
-.show_log_out_buttn{
-    top: 9%;
-    opacity: 1;
-    z-index: 1;
-}
-.logout_btton:hover{
+.logout_image:hover{
     cursor: pointer;
-    /* font-weight: normal; */
-    background-color: rgba(226, 221, 221, 0.942);
+}
+.logout_btton_hover_message{
+    background-color:white;
+    color: black;
+    font-size: 1rem;
+    font-family: consolas;
+    font-weight: bold;
+    width: 5rem;
+    height: 1.5rem;
+    text-align: center;
+    border: 2px solid grey;
+    border-radius: 2rem;
+    position: absolute;
+    left: 65%;
+    top: -50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    opacity: 0;
+    
+}
+.show_logout_btton_hover_message{
+    top: 19%;
+    z-index: 1;
+    opacity: 1;
+
 }

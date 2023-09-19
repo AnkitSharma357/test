@@ -1,3 +1,14 @@
+// to display the log_out message on hover//
+let display_hover_message = document.querySelector('.logout_image');
+display_hover_message.addEventListener('mouseover',function(){
+    document.querySelector('.logout_btton_hover_message').classList.add('show_logout_btton_hover_message');
+})
+display_hover_message.addEventListener('mouseout',function(){
+    document.querySelector('.logout_btton_hover_message').classList.remove('show_logout_btton_hover_message');
+})
+// end of the log out message//
+
+
 //function to fetch the data from a file 
     
 async function fetch_file_data(){
@@ -163,7 +174,6 @@ function taking_radio_button_input(){
 function showCallingdata(){
     document.querySelector('.table').classList.add('show_table');
     document.querySelector('.loginform').classList.add('shwologinform');
-    document.querySelector('.logout_btton').classList.add('show_log_out_buttn');
     API();
     fetch_file_data();
 
@@ -187,7 +197,6 @@ function fetch_username_and_password(){
 function logout_from_calling_seva(){
     document.querySelector('.table').classList.remove('show_table');
     document.querySelector('.loginform').classList.remove('shwologinform');
-    document.querySelector('.logout_btton').classList.remove('show_log_out_buttn');
     alert("You are log out successfully");
 }
 
