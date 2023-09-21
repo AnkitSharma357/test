@@ -174,6 +174,9 @@ function taking_radio_button_input(){
 function showCallingdata(){
     document.querySelector('.table').classList.add('show_table');
     document.querySelector('.loginform').classList.add('shwologinform');
+    document.querySelector('.login_cover').classList.add('hide_login_cover');
+    document.querySelector('.calling_data_overlap').classList.add('show_calling_data_overlap');
+    document.querySelector('.logout_image').classList.add('show_logout_image');
     API();
     fetch_file_data();
 
@@ -197,7 +200,20 @@ function fetch_username_and_password(){
 function logout_from_calling_seva(){
     document.querySelector('.table').classList.remove('show_table');
     document.querySelector('.loginform').classList.remove('shwologinform');
+    document.querySelector('.login_cover').classList.remove('hide_login_cover');
+    document.querySelector('.loginform').classList.remove('shwologinform');
+    document.querySelector('.calling_data_overlap').classList.remove('show_calling_data_overlap');
+    document.querySelector('.logout_image').classList.remove('show_logout_image');
+    document.querySelector('.logout_btton_hover_message').classList.remove('show_logout_btton_hover_message');
+
     alert("You are log out successfully");
+
+    let clear_user_name = document.querySelector('#user_name');
+    let clear_password = document.querySelector('#password');
+
+    clear_user_name.value = '';
+    clear_password.value = '';
+    
 }
 
 

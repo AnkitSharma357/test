@@ -4,35 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISKCON_CALLING_SEVA</title>
-    <!-- <link rel="stylesheet" href="style.min.css"> -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <center>
-    <div class="table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Calling Seva
-                        <div class="logout_image" onclick="logout_from_calling_seva()"></div>
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="Name"></tbody>
-        </table>
-    </div>
-  </center>
-  <!-- // creating logging from// -->
-  <!-- <div class="welcome">
-        <center>
-            <div class="welcomeMessage">
-                Hare Krishna!!!......
-            </div>
-        </center>
-  </div> -->
+    <div class="login_cover"></div>
 
-  <!-- loginform div start -->
-  <!-- <div class="loging_form_overlap"> -->
     <div class="loginform">
         <center><div class="hedinglgin">Calling service</div></center>
         <div class="form">
@@ -48,11 +24,27 @@
             Login
         </div>
     </div>
+    
   <!-- </div> -->
-  <div class="logout_btton_hover_message">
-    Log_out
-  </div>
 
+  <center>
+    <div class="calling_data_overlap"></div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Calling Seva</th>
+                </tr>
+            </thead>
+            <tbody id="Name"></tbody>
+        </table>
+    </div>
+  </center>
+  
+  <div class="logout_image" onclick="logout_from_calling_seva()"></div>
+
+  <div class="logout_btton_hover_message">Log_out</div>
+    
   <div class="overlap">
     <div class="resigter">
         <span onclick="closeregister()">&times;</span>
