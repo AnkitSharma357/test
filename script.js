@@ -28,10 +28,17 @@ async function API(){
     let url = domain1+path;
 
     let url3 ='https://jsonplaceholder.typicode.com/users';
-    let url1='https://loose-singers-fetch.loca.lt/calling-data/1';
+    let aws_url='https://ec2-16-171-229-85.eu-north-1.compute.amazonaws.com:8443/calling-data/';
+    let local_url='http://localhost:80/calling-data/';
 
-     let result = await fetch(url);
+
+	let user_name = taking_data_from_element_user_name();
+
+     let result = await fetch(aws_url+user_name);
+	
+
      result = await result.json();
+     console.log(result);
      document.getElementById('Name').innerHTML=result.map((user) =>
      `<tr>
         <td>
@@ -51,7 +58,7 @@ async function API(){
                 </div>
 
                 <div class="email">
-                    <button type="button" onclick="popup('${user.calleeName}','${user.programAttending}','${user.id}')">
+                    <button type="button" onclick="popup('${user.calleeName}','${user.programAttending}','${user.id}','${user.comments}','${user.isIntrested}')">
                         <img src="message.png" >
                     </button>
                 </div>
@@ -72,8 +79,9 @@ async function API(){
  // function ends
 
  // function to change create the poopup menu 
- function popup(calleeName,programAttending,id){
+ function popup(calleeName,programAttending,id,comments,isIntrested){
 
+    console.log(comments);
     document.querySelector('.overlap').classList.add('showoverlap');
     document.querySelector('.resigter').classList.add('showresigter');
     let x = document.getElementById('class_username');
@@ -82,6 +90,17 @@ async function API(){
     y.innerText=programAttending;
     let z = document.getElementById('mail');
     z.innerText = id;
+    let comments1 = document.getElementById('placeholder');
+    comments1.value = comments;
+
+    let radio_button_yes = document.querySelector('.Yes');
+    let radio_button_no = document.querySelector('.No');
+    if(isIntrested == "true"){
+        radio_button_yes.checked = true;
+    }
+    else{
+        radio_button_no.checked = true;
+    }
     
  }
  // funtion popup ends
@@ -111,6 +130,7 @@ async function API(){
     document.querySelector('.overlap').classList.remove('showoverlap');
     document.querySelector('.conform').classList.remove('showconform');
     update_API();
+    API();
  }
  //function ends
 
@@ -127,7 +147,7 @@ async function API(){
         },
         body:JSON.stringify({
             id: fetch_id,
-            intrested: taking_radio_button_input(),
+            isIntrested: taking_radio_button_input(),
             comments:taking_data_from_element(),
 
         })
@@ -140,9 +160,11 @@ async function API(){
   async function update_API(){
     let option = fetch_id();
     let url1='http://localhost/calling-data/save';
-    let url = 'https://jsonplaceholder.typicode.com/users';
-    
-    let data =await fetch(url1,option);
+    let aws_url='https://ec2-16-171-229-85.eu-north-1.compute.amazonaws.com:8443/calling-data/save';
+     let local_url='https://localhost:8443/calling-data/save';
+
+
+    let data =await fetch(aws_url,option);
     data = await data.json();
  }
 
@@ -154,7 +176,11 @@ async function API(){
     return txtvalue;
  }
 
-
+ function taking_data_from_element_user_name(){
+    let txt = document.getElementById('user_name');
+    let txtvalue = txt.value;
+    return txtvalue;
+ }
 
  //function to taking the input from radio button
 function taking_radio_button_input(){
@@ -166,6 +192,7 @@ function taking_radio_button_input(){
     else if(document.getElementById('no').checked){
         Intrested = false;
     }
+    console.log("radio: ",Intrested);
     return(Intrested);
 
 }
@@ -189,7 +216,7 @@ function fetch_username_and_password(){
     let fetch_username = username;
     let fetch_password = password;
 
-    if((fetch_username =="Ankit") && (fetch_password =="1234")){
+    if((fetch_password =="1234")){
         showCallingdata();
     }
     else{
