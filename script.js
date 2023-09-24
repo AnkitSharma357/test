@@ -57,7 +57,7 @@ async function API(){
                 </div>
 
                 <div class="email">
-                    <button type="button" onclick="popup('${user.calleeName}','${user.programAttending}','${user.id}','${user.comments}','${user.isIntrested}')">
+                    <button type="button" onclick="popup('${user.calleeName}','${user.programAttending}','${user.id}')">
                         <img src="message.png" >
                     </button>
                 </div>
@@ -78,7 +78,7 @@ async function API(){
  // function ends
  let id_of_callee=0;
  // function to change create the poopup menu 
- function popup(calleeName,programAttending,id,comments,isIntrested){
+ function popup(calleeName,programAttending,id){
 
     id_of_callee =id;
     document.querySelector('.overlap').classList.add('showoverlap');
