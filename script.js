@@ -38,7 +38,6 @@ async function API(){
 	
 
      result = await result.json();
-     console.log(result);
      document.getElementById('Name').innerHTML=result.map((user) =>
      `<tr>
         <td>
@@ -77,11 +76,11 @@ async function API(){
     img.setAttribute("src",filename);
  }
  // function ends
-
+ let id_of_callee=0;
  // function to change create the poopup menu 
  function popup(calleeName,programAttending,id,comments,isIntrested){
 
-    console.log(comments);
+    id_of_callee =id;
     document.querySelector('.overlap').classList.add('showoverlap');
     document.querySelector('.resigter').classList.add('showresigter');
     let x = document.getElementById('class_username');
@@ -90,17 +89,7 @@ async function API(){
     y.innerText=programAttending;
     let z = document.getElementById('mail');
     z.innerText = id;
-    let comments1 = document.getElementById('placeholder');
-    comments1.value = comments;
-
-    let radio_button_yes = document.querySelector('.Yes');
-    let radio_button_no = document.querySelector('.No');
-    if(isIntrested == "true"){
-        radio_button_yes.checked = true;
-    }
-    else{
-        radio_button_no.checked = true;
-    }
+    fetch_commnets_and_intrested();
     
  }
  // funtion popup ends
@@ -130,7 +119,7 @@ async function API(){
     document.querySelector('.overlap').classList.remove('showoverlap');
     document.querySelector('.conform').classList.remove('showconform');
     update_API();
-    API();
+
  }
  //function ends
 
@@ -192,7 +181,7 @@ function taking_radio_button_input(){
     else if(document.getElementById('no').checked){
         Intrested = false;
     }
-    console.log("radio: ",Intrested);
+    // console.log("radio: ",Intrested);
     return(Intrested);
 
 }
@@ -240,6 +229,35 @@ function logout_from_calling_seva(){
 
     clear_user_name.value = '';
     clear_password.value = '';
+    
+}
+
+async function fetch_commnets_and_intrested(){
+    let id2=0;
+    let i=0;
+    let aws_url='https://ec2-16-171-229-85.eu-north-1.compute.amazonaws.com:8443/calling-data/';
+    let user_name = taking_data_from_element_user_name();
+    let result = await fetch(aws_url+user_name);
+    result = await result.json();
+    let count = result.length;
+    for(i=0;i<=count-1;i++){
+        id2 = result[i].id;
+        if(id2==id_of_callee){
+            break;
+        }
+    }
+
+    let comments1 = document.getElementById('placeholder');
+    comments1.value = result[i].comments;
+
+    let radio_button_yes = document.querySelector('.Yes');
+    let radio_button_no = document.querySelector('.No');
+    if(result[i].isIntrested == "true"){
+        radio_button_yes.checked = true;
+    }
+    else{
+        radio_button_no.checked = true;
+    }
     
 }
 
