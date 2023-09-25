@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calling Service App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login_cover"></div>
+
+    <div class="loginform">
+        <center><div class="hedinglgin">Calling service</div></center>
+        <div class="form">
+            <form>
+                <label class="login_label">User name</label><br>
+                <input  class="input_tag" type="text" id="user_name"><br><br>
+                <label class="login_label">Password</label><br>
+                <input class="input_tag" type="password" id="password">
+                <br>
+            </form>
+        </div>
+        <div class="login_button" onclick="fetch_username_and_password()">
+            Login
+        </div>
+    </div>
+    
+  <!-- </div> -->
+
+  <center>
+    <div class="calling_data_overlap"></div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <div class="logout_image" onclick="logout_from_calling_seva()"></div>
+                        Calling Seva
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="Name"></tbody>
+        </table>
+    </div>
+  </center>
+  
+
+  <div class="logout_btton_hover_message">Log_out</div>
+    
+  <div class="overlap">
+    <div class="resigter">
+        <span onclick="closeregister()">&times;</span>
+        <form action="">
+            <div class="username_mail">
+                <div class="n" id="class_username">
+                </div>
+                <div class="short_n" id="electronic_mail">
+                </div>
+                <div class="userid" id="mail"></div>
+            </div>
+
+            <div class="u1">
+                <label for=""><b>interested ?</b></label>
+                <select name="choise" id="yes_or_no">
+                    <option value="true" class="yes">Yes</option>
+                    <option value="false" class="no">No</option>
+                </select>
+            </div>
+
+            <div class="u1">
+                <label for=""><b>comments(if any)</b></label>
+                <br>
+                <br>
+                <textarea cols="30" rows="10"  id="placeholder" placeholder="write some comments"></textarea>
+            </div>
+        </form>
+        <div class="submit_button" onclick="conformation()"> Submit</div>
+    </div>
+    <div class="conform">
+        <div class="tick">
+            <img src="tick.jpg" alt="">
+        </div>
+        <div class="thankyou">
+            Thank you your response is submitted successfully
+        </div>
+        <div class="ok" onclick="removeconform()">
+            ok
+        </div>
+    </div>
+  </div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
