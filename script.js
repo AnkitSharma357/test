@@ -174,14 +174,13 @@ async function API(){
  //function to taking the input from radio button
 function taking_radio_button_input(){
     let Intrested;
-    if(document.getElementById('yes').checked){
+    if(document.querySelector('#yes_or_no').value == "true"){
         Intrested = true;
     }
 
-    else if(document.getElementById('no').checked){
+    else if(document.querySelector('#yes_or_no').value == "false"){
         Intrested = false;
     }
-    // console.log("radio: ",Intrested);
     return(Intrested);
 
 }
@@ -250,13 +249,14 @@ async function fetch_commnets_and_intrested(){
     let comments1 = document.getElementById('placeholder');
     comments1.value = result[i].comments;
 
-    let radio_button_yes = document.querySelector('.Yes');
-    let radio_button_no = document.querySelector('.No');
+    let select = document.querySelector('#yes_or_no');
+    let option = document.querySelector('.yes');
+    let option1 = document.querySelector('.no');
     if(result[i].isIntrested == "true"){
-        radio_button_yes.checked = true;
+        select.value = option.value;
     }
     else{
-        radio_button_no.checked = true;
+        select.value = option1.value;
     }
     
 }
