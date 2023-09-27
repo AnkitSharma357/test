@@ -104,6 +104,16 @@ tr{
     margin-bottom: 0.5rem;
     width: 11rem;
     height: auto;
+    padding: 0.5rem 0.5rem;
+}
+.u1 select{
+    padding: 0.1rem 0.1rem;
+    font-family: consolas;
+    border-radius: 5px;
+
+}
+.u1 select:hover{
+    border: 2px solid blue;
 }
 .n{
     font-size: 1rem;
@@ -173,7 +183,6 @@ tr{
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
 }
 .conform{
-    /* transition: 1s; */
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
     border: 2px solid black;
     border-radius: 1rem;
@@ -205,7 +214,6 @@ div.tick{
     margin-left: 5rem;
 }
 .tick img{
-    /* background-color: blue; */
     border-radius: 10rem;
     width: 5rem;
     height: 5rem;
@@ -238,7 +246,6 @@ div.tick{
     transform: translate(-50%,130%);
     font-family: consolas;
     font-weight: bold;
-    /* opacity: 0; */
 }
 .userid{
     background-color: red;

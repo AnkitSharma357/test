@@ -174,15 +174,8 @@ async function API(){
  //function to taking the input from radio button
 function taking_radio_button_input(){
     let Intrested;
-    if(document.querySelector('#yes_or_no').value == "true"){
-        Intrested = true;
-    }
-
-    else if(document.querySelector('#yes_or_no').value == "false"){
-        Intrested = false;
-    }
+    Intrested = document.querySelector('#yes_or_no').value;
     return(Intrested);
-
 }
 
 
@@ -250,15 +243,38 @@ async function fetch_commnets_and_intrested(){
     comments1.value = result[i].comments;
 
     let select = document.querySelector('#yes_or_no');
-    let option = document.querySelector('.yes');
-    let option1 = document.querySelector('.no');
-    if(result[i].isIntrested == "true"){
-        select.value = option.value;
+    let option0 = document.querySelector('.No_Answer');
+    let option1 = document.querySelector('.Will_Come');
+    let option2 = document.querySelector('.Not_Confirm');
+    let option3 = document.querySelector('.Out_of_Delhi');
+    let option4 = document.querySelector('.Time_not_suitable');
+    let option5 = document.querySelector('.Day_not_suitable');
+    let option6 = document.querySelector('.Switch_OFF');
+    let option7 = document.querySelector('.Wrong_number');
+    if(result[i].isIntrested == "No Answer"){
+        select.value = option0.value;
     }
-    else{
+    else if(result[i].isIntrested == "Will Come"){
         select.value = option1.value;
     }
-    
+    else if(result[i].isIntrested == "Not Confirm"){
+        select.value = option2.value;
+    }
+    else if(result[i].isIntrested == "Out of Delhi"){
+        select.value = option3.value;
+    }
+    else if(result[i].isIntrested == "Time not Suitable"){
+        select.value = option4.value;
+    }
+    else if(result[i].isIntrested == "Day not Suitable"){
+        select.value = option5.value;
+    }
+    else if(result[i].isIntrested == "Switch OFF"){
+        select.value = option6.value;
+    }
+    else{
+        select.value = option7.value;
+    }
 }
 
 
