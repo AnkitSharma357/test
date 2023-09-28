@@ -147,14 +147,22 @@ async function API(){
 
  
   async function update_API(){
-    let option = fetch_id();
-    let url1='http://localhost/calling-data/save';
-    let aws_url='https://ec2-16-171-229-85.eu-north-1.compute.amazonaws.com:8443/calling-data/save';
-     let local_url='https://localhost:8443/calling-data/save';
-
-
-    let data =await fetch(aws_url,option);
-    data = await data.json();
+    let count1= 0;
+    let count2 =0;
+    try{
+        let option = fetch_id();
+        let url1='http://localhost/calling-data/save';
+        let aws_url='https://ec2-16-171-229-85.eu-north-1.compute.amazonaws.com:8443/calling-data/save';
+        let local_url='https://localhost:8443/calling-data/save';
+        let data =await fetch(aws_url,option);
+        data = await data.json();
+        count1 = count1+2;
+        show_conformation_message(count1);
+    }
+    catch(error){
+        count2=count2+1;
+        show_conformation_message(count2);
+    }
  }
 
 
@@ -276,6 +284,22 @@ async function fetch_commnets_and_intrested(){
         select.value = option7.value;
     }
 }
-
+function show_conformation_message(check_even_odd){
+    let conformation = document.querySelector('.conformation_message');
+    if(check_even_odd%2 == 0){
+        conformation.innerText = "Your response submitted sucessfully";
+        document.querySelector('.conformation_message').classList.add('show_conformation_message');
+        setTimeout(function remove_conformation_message(){
+            document.querySelector('.conformation_message').classList.remove('show_conformation_message');
+        },4000);
+    }
+    else{
+        conformation.innerText = "Their is some problem";
+        document.querySelector('.conformation_message').classList.add('show_conformation_message');
+        setTimeout(function remove_conformation_message(){
+            document.querySelector('.conformation_message').classList.remove('show_conformation_message');
+        },4000);
+    }
+}
 
 

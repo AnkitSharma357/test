@@ -451,3 +451,27 @@ div.tick{
     width: 100%;
     opacity: 1;
 }
+.conformation_message{
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 0.2rem 0.4rem;
+    position: absolute;
+    left: 50%;
+    top: -150%;
+    transform: translate(-50%,-50%);
+    width: 20rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: 2px solid rgb(7, 197, 239);
+    font-family: consolas;
+    font-weight: bold;
+    opacity: 0;
+    z-index: -1;
+}
+.show_conformation_message{
+    transition: 1000ms;
+    top: 10%;
+    opacity: 1;
+    z-index: 1;
+}
